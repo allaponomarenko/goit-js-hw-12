@@ -18,6 +18,7 @@ document.body.appendChild(refs.loader);
 refs.loadMoreBtn.style.display = 'none';
 
 const pixabayApi = new PixabayApi();
+let totalHits = 0;
 
 refs.searchform.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
@@ -36,15 +37,15 @@ function onSearch(event) {
   pixabayApi.query = query;
   pixabayApi.resetPage();
 
-  fetchAndRenderImages();
+  fetchAndRenderImages(true);
 }
 
 async function onLoadMore() {
   showLoader();
-  await fetchAndRenderImages();
+  await fetchAndRenderImages(false);
 }
 
-async function fetchAndRenderImages() {
+async function fetchAndRenderImages(isNewSearch) {
   try {
     const data = await pixabayApi.fetchPhoto();
     if (data.hits.length === 0) {
@@ -55,7 +56,18 @@ async function fetchAndRenderImages() {
       );
     } else {
       onRenderGallery(data.hits, refs.galleryContainer);
-      refs.loadMoreBtn.style.display = 'block'; // Показати кнопку після успішного завантаження зображень
+      totalHits = isNewSearch ? data.totalHits : totalHits;
+      const loadedImages = pixabayApi.page * 15;
+      if (loadedImages >= totalHits) {
+        refs.loadMoreBtn.style.display = 'none';
+        showToast(
+          'blue',
+          "We're sorry, but you've reached the end of search results.",
+          'topRight'
+        );
+      } else {
+        refs.loadMoreBtn.style.display = 'block';
+      }
     }
   } catch (error) {
     showToast(
