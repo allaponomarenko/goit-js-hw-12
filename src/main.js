@@ -43,6 +43,7 @@ function onSearch(event) {
 async function onLoadMore() {
   showLoader();
   await fetchAndRenderImages(false);
+  smoothScroll();
 }
 
 async function fetchAndRenderImages(isNewSearch) {
@@ -94,4 +95,12 @@ function showLoader() {
 
 function hideLoader() {
   refs.loader.style.display = 'none';
+}
+
+function smoothScroll() {
+  const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 }
