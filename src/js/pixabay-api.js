@@ -10,13 +10,23 @@ export default class PixabayApi {
   }
 
   async fetchPhoto() {
-    const response = await axios.get(
-      `${BASE_URL}?key=${API_KEY}&q=${this.query}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=12`
-    );
-    return response.data;
+    try {
+      const response = await axios.get(
+        `${BASE_URL}?key=${API_KEY}&q=${this.query}&image_type=photo&orientation=horizontal&safesearch=true&page=${this.page}&per_page=15`
+      );
+      this.incrementPage();
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
   }
 
-  reset() {
+  incrementPage() {
+    this.page += 1;
+  }
+
+  resetPage() {
     this.page = 1;
   }
 }

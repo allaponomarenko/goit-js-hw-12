@@ -39,3 +39,6 @@ function createGalleryItem(image) {
     </a>
   `;
 }
+
+
+
