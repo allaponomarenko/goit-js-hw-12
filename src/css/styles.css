@@ -1,15 +1,15 @@
 body {
   font-family: Montserrat, sans-serif;
-  margin: 0; 
+  margin: 0;
   background-color: red; /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, red, orange, yellow, violet);
-  }
-
-  .text-silver {
-  color: #C0C0C0;
 }
-  
-  :root {
+
+.text-silver {
+  color: #c0c0c0;
+}
+
+:root {
   font-family: Montserrat, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -20,22 +20,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  }
-  
-  
-  .search-form {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
   top: 0;
   left: 0;
   width: 100%;
   margin: 20px;
   margin-bottom: 20px;
-  }
-  
-  
-  .search-form input {
+}
+
+.search-form input {
   margin-left: 0;
   margin-top: 20px;
   color: #808080;
@@ -47,24 +45,21 @@ body {
   width: 272px;
   height: 40px;
   padding-left: 16px;
-  }
-  
-  
-  .search-form input:hover {
+}
+
+.search-form input:hover {
   border: 1px solid #000;
-  }
-  
-  
-  .search-form input:focus {
-  color: #2E2F42;
-  border: 1px solid #4E75FF;
+}
+
+.search-form input:focus {
+  color: #2e2f42;
+  border: 1px solid #4e75ff;
   outline: none;
-  }
-  
-  
-  button {
+}
+
+button {
   margin-left: 8px;
-  color: #FFF;
+  color: #fff;
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -74,57 +69,51 @@ body {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: #4E75FF;
+  background: #4e75ff;
   overflow: hidden;
   box-shadow: 0 2px 5px rgb(33 225 91);
-  }
-  
-  
-  button:hover {
-  background-color: #6C8CFF;
-  }
-  
-  
-  .gallery {
+}
+
+button:hover {
+  background-color: #6c8cff;
+}
+
+.gallery {
   display: flex;
   flex-wrap: wrap;
   margin: 20px;
   padding-top: 20px;
-  }
-  
-  
-  .image-card {
-  width: calc(100% / 3 - 10px* 2);
+}
+
+.image-card {
+  width: calc(100% / 3 - 10px * 2);
   margin: 5px;
   border: 3px solid #0cd8b0;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 2px 5px rgb(33 225 91);
-  }
-  
-  .image-card:hover,
-  .image-card:focus {
-    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.5);
-  }
-  
-  
-  .image-card img {
+}
+
+.image-card:hover,
+.image-card:focus {
+  box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.5);
+}
+
+.image-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   overflow: hidden;
-  }
-  
-  
-  .info {
-   display: flex;
+}
+
+.info {
+  display: flex;
   align-items: center;
   justify-content: space-evenly;
   padding: 5px;
-  }
-  
-  
-  .label {
+}
+
+.label {
   color: #054e45;
   font-family: Montserrat;
   font-size: 16px;
@@ -132,17 +121,15 @@ body {
   font-weight: 600;
   line-height: 1.33; /* 133.333% */
   letter-spacing: 0.04em;
-  }
-  
-  
-  .value {
+}
+
+.value {
   display: flex;
   justify-content: center;
   color: #054e45;
-  }
-  
-  
-  .loader {
+}
+
+.loader {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -154,17 +141,21 @@ body {
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-  }
+}
 
-  .btn {
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
   margin-left: 720px;
   margin-bottom: 20px;
-  color: #FFF;
+  color: #fff;
   font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
@@ -174,12 +165,11 @@ body {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: #4E75FF;
+  background: #4e75ff;
   overflow: hidden;
   box-shadow: 0 2px 5px rgb(33 225 91);
-  }
+}
 
-  .btn:hover {
-    background-color: #6C8CFF;
-    }
-    
+.btn:hover {
+  background-color: #6c8cff;
+}
