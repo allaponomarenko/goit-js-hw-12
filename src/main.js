@@ -14,11 +14,11 @@ const refs = {
 refs.loader.className = 'loader';
 document.body.appendChild(refs.loader);
 
-// Сховати кнопку завантаження додаткових зображень при завантаженні сторінки
 refs.loadMoreBtn.style.display = 'none';
 
 const pixabayApi = new PixabayApi();
 let totalHits = 0;
+let loadedHits = 0;
 
 refs.searchform.addEventListener('submit', onSearch);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
@@ -58,8 +58,9 @@ async function fetchAndRenderImages(isNewSearch) {
     } else {
       onRenderGallery(data.hits, refs.galleryContainer);
       totalHits = isNewSearch ? data.totalHits : totalHits;
-      const loadedImages = pixabayApi.page * 15;
-      if (loadedImages >= totalHits) {
+      loadedHits = isNewSearch ? data.hits.length : loadedHits + data.hits.length;
+
+      if (loadedHits >= totalHits) {
         refs.loadMoreBtn.style.display = 'none';
         showToast(
           'blue',
@@ -98,9 +99,7 @@ function hideLoader() {
 }
 
 function smoothScroll() {
-  const { height: cardHeight } = document
-    .querySelector('.gallery')
-    .firstElementChild.getBoundingClientRect();
+  const { height: cardHeight } = document.querySelector('.gallery').firstElementChild.getBoundingClientRect();
   window.scrollBy({
     top: cardHeight * 2,
     behavior: 'smooth',
